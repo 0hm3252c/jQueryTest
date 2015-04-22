@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>jQuery入門研修｜クラスセレクター実践</title>
+</head>
+<body>
+    <a href="http://jquery.com/" id="foo" class="bar">jQuery</a>
+    <ul>
+        <li class="bar">List Item BAR</li>
+        <li>List Item BAZ</li>
+        <li class="bar">List Item QUX</li>
+    <ul>
+    <script src="../js/jquery-1.11.2.min.js"></script>
+    <script>
+        $(function() {
+            // class"bar"を探そう！
+//             console.log($(".bar").length);
+            var bar = $(".bar");
+            console.log(bar.length);
+            console.log(bar[0]);
+            console.log(bar[1]);
+            console.log(bar[2]);
+            bar.each(function(index,element){
+            	console.log(element);
+            })
+        });
+    </script>
+</body>
+</html>

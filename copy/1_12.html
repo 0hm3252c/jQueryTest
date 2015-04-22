@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>jQuery入門研修｜プロパティ操作実践</title>
+<style>
+form, table {
+	float:left;
+}
+table {
+	text-align: center;
+	margin-left: 15px;
+}
+table, th {
+    border: 1px solid;
+    border-collapse: collapse;
+}
+td {
+    border: 1px dotted;
+    border-collapse: collapse;
+}
+tr, th, td {
+	padding: 2px;
+}
+.changed {
+	background-color:teal;
+}
+.highlight {
+	background-color:silver;
+}
+</style>
+</head>
+<body>
+<form>
+<fieldset>
+	<legend>jQueryピザのご注文</legend>
+	<fieldset>
+		<legend><label for="size"><input type="checkbox" id="size" class="disabling" checked>大きさを選ぶ</label></legend>
+		<label for="ssize"><input type="radio" name="size" value="s" id="ssize" class="size">Sサイズ</label>
+		<label for="msize"><input type="radio" name="size" value="m" id="msize" class="size" checked>Mサイズ</label>
+	    <label for="lsize"><input type="radio" name="size" value="l" id="lsize" class="size">Lサイズ</label>
+	</fieldset>
+	<fieldset>
+		<legend><label for="topping"><input type="checkbox" id="topping" class="disabling" checked>トッピングを追加する</label></legend>
+		<label for="bacon"><input type="checkbox" name="bacon" value="1" id="bacon" class="topping">ベーコン</label>
+		<label for="cheese"><input type="checkbox" name="cheese" value="2" id="cheese" class="topping">チーズ</label>
+		<label for="onion"><input type="checkbox" name="onion" value="3" id="onion" class="topping">タマネギ</label>
+		<label for="mushroom"><input type="checkbox" name="mushroom" value="4" id="mushroom" class="topping">マッシュルーム</label>
+	</fieldset>
+	<fieldset>
+		<legend><label for="time"><input type="checkbox" id="time" class="disabling">時間を指定する</label></legend>
+		<select name="time" class="time" disabled>
+				<option value="-1">今すぐ！</option>
+			<optgroup label="午前中">
+				<option value="10">10時</option>
+				<option value="11">11時</option>
+			</optgroup>
+			<optgroup label="ランチタイム">
+				<option value="12">12時</option>
+				<option value="13">13時</option>
+				<option value="14">14時</option>
+				<option value="15">15時</option>
+			</optgroup>
+			<optgroup label="ディナータイム">
+				<option value="16">16時</option>
+				<option value="17">17時</option>
+				<option value="18">18時</option>
+				<option value="19">19時</option>
+				<option value="20">20時</option>
+				<option value="21">21時</option>
+				<option value="22">22時</option>
+				<option value="23">23時</option>
+			</optgroup>
+		</select>
+	</fieldset>
+</fieldset>
+
+<p><input type="button" value="確認する" id="check"></p>
+
+<fieldset>
+	<legend>ご注文の確認</legend>
+	<fieldset>
+		<legend>大きさ</legend>
+		<div id="oderSize">&nbsp;</div>
+	</fieldset>
+	<fieldset>
+		<legend>トッピング</legend>
+		<div id="oderTopping">&nbsp;</div>
+	</fieldset>
+	<fieldset>
+		<legend>お届け時間</legend>
+		<div id="oderTime">&nbsp;</div>
+	</fieldset>
+</fieldset>
+
+<p><input type="button" value="注文する" id="order" disabled></p>
+</form>
+
+<table>
+	<caption>各要素の状態一覧表（checked／disabled）</caption>
+	<thead>
+		<tr>
+			<th>-</th>
+			<th>attr：checked</th>
+			<th>attr：disabled</th>
+			<th>prop：checked</th>
+			<th>prop：disabled</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>大きさを選ぶ</th>
+			<td id="td11"></td>
+			<td id="td12"></td>
+			<td id="td13"></td>
+			<td id="td14"></td>
+		</tr>
+		<tr>
+			<th>Sサイズ</th>
+			<td id="td21"></td>
+			<td id="td22"></td>
+			<td id="td23"></td>
+			<td id="td24"></td>
+		</tr>
+		<tr>
+			<th>Mサイズ</th>
+			<td id="td31"></td>
+			<td id="td32"></td>
+			<td id="td33"></td>
+			<td id="td34"></td>
+		</tr>
+		<tr>
+			<th>Lサイズ</th>
+			<td id="td41"></td>
+			<td id="td42"></td>
+			<td id="td43"></td>
+			<td id="td44"></td>
+		</tr>
+		<tr>
+			<th>トッピングを追加する</th>
+			<td id="td51"></td>
+			<td id="td52"></td>
+			<td id="td53"></td>
+			<td id="td54"></td>
+		</tr>
+		<tr>
+			<th>ベーコン</th>
+			<td id="td61"></td>
+			<td id="td62"></td>
+			<td id="td63"></td>
+			<td id="td64"></td>
+		</tr>
+		<tr>
+			<th>チーズ</th>
+			<td id="td71"></td>
+			<td id="td72"></td>
+			<td id="td73"></td>
+			<td id="td74"></td>
+		</tr>
+		<tr>
+			<th>タマネギ</th>
+			<td id="td81"></td>
+			<td id="td82"></td>
+			<td id="td83"></td>
+			<td id="td84"></td>
+		</tr>
+		<tr>
+			<th>マッシュルーム</th>
+			<td id="td91"></td>
+			<td id="td92"></td>
+			<td id="td93"></td>
+			<td id="td94"></td>
+		</tr>
+		<tr>
+			<th>時間を指定する</th>
+			<td id="td101"></td>
+			<td id="td102"></td>
+			<td id="td103"></td>
+			<td id="td104"></td>
+		</tr>
+		<tr>
+			<th>セレクトボックス</th>
+			<td id="td111"></td>
+			<td id="td112"></td>
+			<td id="td113"></td>
+			<td id="td114"></td>
+		</tr>
+		<tr>
+			<th>確認するボタン</th>
+			<td id="td121"></td>
+			<td id="td122"></td>
+			<td id="td123"></td>
+			<td id="td124"></td>
+		</tr>
+		<tr>
+			<th>注文するボタン</th>
+			<td id="td131"></td>
+			<td id="td132"></td>
+			<td id="td133"></td>
+			<td id="td134"></td>
+		</tr>
+	</tbody>
+</table>
+
+<table>
+	<caption>選択項目の状態一覧表（selected）</caption>
+	<thead>
+		<tr>
+			<th>-</th>
+			<th>attr：selected</th>
+			<th>prop：selected</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>今すぐ！</th>
+			<td id="td210"></td>
+			<td id="td220"></td>
+		</tr>
+		<tr>
+			<th>10時</th>
+			<td id="td211"></td>
+			<td id="td221"></td>
+		</tr>
+		<tr>
+			<th>11時</th>
+			<td id="td212"></td>
+			<td id="td222"></td>
+		</tr>
+		<tr>
+			<th>12時</th>
+			<td id="td213"></td>
+			<td id="td223"></td>
+		</tr>
+		<tr>
+			<th>13時</th>
+			<td id="td214"></td>
+			<td id="td224"></td>
+		</tr>
+		<tr>
+			<th>14時</th>
+			<td id="td215"></td>
+			<td id="td225"></td>
+		</tr>
+		<tr>
+			<th>15時</th>
+			<td id="td216"></td>
+			<td id="td226"></td>
+		</tr>
+		<tr>
+			<th>16時</th>
+			<td id="td217"></td>
+			<td id="td227"></td>
+		</tr>
+		<tr>
+			<th>17時</th>
+			<td id="td218"></td>
+			<td id="td228"></td>
+		</tr>
+		<tr>
+			<th>18時</th>
+			<td id="td219"></td>
+			<td id="td229"></td>
+		</tr>
+		<tr>
+			<th>19時</th>
+			<td id="td2110"></td>
+			<td id="td2210"></td>
+		</tr>
+		<tr>
+			<th>20時</th>
+			<td id="td2111"></td>
+			<td id="td2211"></td>
+		</tr>
+		<tr>
+			<th>21時</th>
+			<td id="td2112"></td>
+			<td id="td2212"></td>
+		</tr>
+		<tr>
+			<th>22時</th>
+			<td id="td2113"></td>
+			<td id="td2213"></td>
+		</tr>
+		<tr>
+			<th>23時</th>
+			<td id="td2114"></td>
+			<td id="td2214"></td>
+		</tr>
+	</tbody>
+</table>
+<script src="../js/jquery-1.11.2.min.js"></script>
+<script>
+	$(function() {
+		$(".disabling").change(function() {
+			$("." + this.id).prop("disabled", !$(this).prop("checked"));
+		});
+
+		$("#size").change(function() {
+			$(".size[value='m']").prop("checked", true);
+		});
+
+		$("#time").change(function() {
+			$("option").eq(0).prop("selected", true);
+		});
+
+		$("#check").click(function() {
+			$("#oderSize").text($(".size:checked").parent("label").text());
+
+			$("#oderTopping").text(
+				function() {
+					var toppings = "なし";
+					var $topping = null;
+					var toppingLen = null;
+
+					if ($("#topping").prop("checked")) {
+						$topping = $(".topping:checked");
+						toppingLen = $topping.length;
+
+						if (0 < toppingLen){
+							toppings = "";
+							$topping.each(function(i) {
+								toppings += $(this).parent("label").text();
+								if (i + 1 < toppingLen) {
+									toppings += ", ";
+								}
+							});
+						}
+					}
+					return toppings;
+				}
+			);
+
+			$("#oderTime").text($("option:selected").text());
+			$("#order").prop("disabled", false);
+			$(this).prop("disabled", true);
+		});
+
+		$("select,input[type!='button']").change(function() {
+			if (!$("#order").prop("disabled")) {
+				$("input[type='button']").prop("disabled", function() {
+					return !$(this).prop("disabled");
+				});
+			}
+		});
+
+		$("#order").click(function() {
+			this.form.submit();
+		});
+
+		$("select,input[type!='button']").change("change", editTable);
+		$("input[type='button']").click("change", editTable);
+		$("tr:odd").addClass("highlight");
+		editTable(true);
+	});
+
+function editTable(isFirst) {
+	if ("boolean" != typeof isFirst) {
+		isFirst = false;
+	}
+
+	$("select,input").each(function(i, elm) {
+		i++;
+		var $elm = $(elm);
+		var acId = "#td" + i + "1";
+		var adId = "#td" + i + "2";
+		var pcId = "#td" + i + "3";
+		var pdId = "#td" + i + "4";
+
+		if (isFirst || $(acId).text() != String($elm.attr("checked"))) {
+			$(acId).text(String($elm.attr("checked")));
+			if (!isFirst) {
+				$(acId).addClass("changed");
+			}
+		} else {
+			$(acId).removeClass("changed");
+		}
+
+		if (isFirst || $(adId).text() != String($elm.attr("disabled"))) {
+			$(adId).text(String($elm.attr("disabled")));
+			if (!isFirst) {
+				$(adId).addClass("changed");
+			}
+		} else {
+			$(adId).removeClass("changed");
+		}
+
+		if (isFirst || $(pcId).text() != String($elm.prop("checked"))) {
+			$(pcId).text(String($elm.prop("checked")));
+			if (!isFirst) {
+				$(pcId).addClass("changed");
+			}
+		} else {
+			$(pcId).removeClass("changed");
+		}
+
+		if (isFirst || $(pdId).text() != String($elm.prop("disabled"))) {
+			$(pdId).text(String($elm.prop("disabled")));
+			if (!isFirst) {
+				$(pdId).addClass("changed");
+			}
+		} else {
+			$(pdId).removeClass("changed");
+		}
+	});
+
+	$("option").each(function(i, elm) {
+		var $elm = $(elm);
+		var asId = "#td21" + i;
+		var psId = "#td22" + i;
+
+		if (isFirst || $(asId).text() != String($elm.attr("selected"))) {
+			$(asId).text(String($elm.attr("selected")));
+			if (!isFirst) {
+				$(asId).addClass("changed");
+			}
+		} else {
+			$(asId).removeClass("changed");
+		}
+
+		if (isFirst || $(psId).text() != String($elm.prop("selected"))) {
+			$(psId).text(String($elm.prop("selected")));
+			if (!isFirst) {
+				$(psId).addClass("changed");
+			}
+		} else {
+			$(psId).removeClass("changed");
+		}
+	});
+}
+</script>
+</body>
+</html>

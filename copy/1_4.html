@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>jQuery入門研修｜IDセレクター実践</title>
+</head>
+<body>
+    <a href="http://jquery.com/" id="foo">jQuery1</a>
+    <a href="http://jquery.com/" id="bar">jQuery2</a>
+    <a href="http://jquery.com/" id="baz">jQuery3</a>
+    <script src="../js/jquery-1.11.2.min.js"></script>
+    <script>
+        $(function() {
+            // ID"baz"を探そう！
+//             console.log($("#baz").length);
+           	console.log($("#baz").size());
+            console.log($("#baz")[0]);
+        });
+    </script>
+</body>
+</html>

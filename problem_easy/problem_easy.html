@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>2G問題_初級</title>
+		<link rel="stylesheet" href="./css/common.css" type="text/css" />
+		<!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+		<script src="../js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="./js/common.js"></script>
+		<script>
+		$(function(){
+			$("#local-key").html = "<input type='text'>テスト</input>";
+		})
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div id="input-area">
+				<h4>登録データ</h4>
+				<p>KEY：<input id="textkey" type="text" />　値：<input id="textdata" type="text" /></p>
+
+				<p align="right">
+					<button id="register-local-storage-btn">永続保存</button>
+					<button id="register-session-storage-btn">一時保存</button>
+					<button id="delete-storage-btn">削除</button>
+					<button id="refresh-storage-btn">全削除</button>
+				</p>
+			</div>
+
+			<div id="list-area">
+				<h4>登録済み一覧(永続)</h4>
+				<table id="register-lasting-list" class="register-list">
+					<thead>
+						<tr>
+							<th>キー</th><th>値</th>
+						</tr>
+					</thead>
+					<tbody id ="local-list" >
+					</tbody>
+				</table>
+
+				<h4>登録済み一覧(一時)</h4>
+				<table id="register-session-list" class="register-list">
+					<thead>
+						<tr>
+							<th>キー</th><th>値</th>
+						</tr>
+					</thead>
+					<tbody id ="session-list" >
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

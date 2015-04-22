@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>jQuery入門研修｜要素の操作実践</title>
+</head>
+<body>
+	<ul>
+		<li>リストアイテム１</li>
+		<li>リストアイテム２</li>
+		<li>リストアイテム３</li>
+	</ul>
+	<script src="../js/jquery-1.11.2.min.js"></script>
+	<script>
+			$(function() {
+				// ul要素に最初（0番目）のli要素を挿入しよう！
+				// ***以下、技術ページの記載写経***
+				// $("ul").append($("li:eq(0)"));
+
+				// ul要素に新しいli要素を挿入しよう！
+				var $newLi = $("<li>新しいリストアイテム</li>");
+				$("ul").append($newLi);
+				$newLi.css("color", "red");
+
+				// var $newLi = $("<li>新しいリストアイテム</li>");
+				// $("ul").append($newLi);
+
+				// ***以下、リファレンスサイトの記載写経***
+				// $("ul").append("<li>新しいリストアイテム</li>");
+
+				// $("ul").append($("<li>新しいリストアイテム</li>"));
+			});
+
+	</script>
+</body>
+</html>

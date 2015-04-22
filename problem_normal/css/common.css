@@ -1,0 +1,225 @@
+@charset "UTF-8";
+
+html, body, div, p, span, h1, h2, h3, blockquote, pre, a, address, big, code, em, font, img, strong, ol, ul, li, form, label, table, tr, th, td, article, aside, footer, header, menu, nav, section, summary {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    font-size: 100%;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+}
+
+h1, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+input, textarea, label {
+    font: 16px Georgia,"Times New Roman",Times,serif;
+}
+
+.container {
+    margin: 10px 20px;
+}
+
+.content-box {
+    margin-bottom: 10px;
+}
+
+.title {
+    background: none repeat scroll 0 0 #a7b7f5;
+    padding: 5px 10px;
+    width: 500px;
+}
+.title:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.title h2, .title h3 {
+    float: left;
+}
+
+#japan-map-area {
+    background-image: url("../img/japan_maps.jpg");
+    height: 400px;
+    width: 520px;
+}
+#japan-map-area > div {
+    position: absolute;
+}
+#japan-map-area p {
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 1px #009f28, -2px 2px 1px #009f28, 2px -2px 1px #009f28, -2px -2px 1px #009f28;
+}
+#japan-map-area img{
+    width: auto;
+    max-height: 20px;
+}
+#japan-map-area #point-012010 {
+    left: 440px;
+    top: 76px;
+}
+#japan-map-area #point-016010 {
+    left: 401px;
+    top: 99px;
+}
+#japan-map-area #point-014020 {
+    left: 464px;
+    top: 139px;
+}
+#japan-map-area #point-020010 {
+    left: 369px;
+    top: 172px;
+}
+#japan-map-area #point-040010 {
+    left: 379px;
+    top: 261px;
+}
+#japan-map-area #point-050010 {
+    left: 341px;
+    top: 205px;
+}
+#japan-map-area #point-090010 {
+    left: 323px;
+    top: 291px;
+}
+#japan-map-area #point-130010 {
+    left: 304px;
+    top: 341px;
+}
+#japan-map-area #point-150010 {
+    left: 287px;
+    top: 257px;
+}
+#japan-map-area #point-170010 {
+    left: 229px;
+    top: 268px;
+}
+#japan-map-area #point-200010 {
+    left: 269px;
+    top: 295px;
+}
+#japan-map-area #point-230010 {
+    left: 240px;
+    top: 344px;
+}
+#japan-map-area #point-270000 {
+    left: 199px;
+    top: 325px;
+}
+#japan-map-area #point-320010 {
+    left: 172px;
+    top: 286px;
+}
+#japan-map-area #point-340010 {
+    left: 132px;
+    top: 308px;
+}
+#japan-map-area #point-370000 {
+    left: 165px;
+    top: 335px;
+}
+#japan-map-area #point-390010 {
+    left: 138px;
+    top: 368px;
+}
+#japan-map-area #point-400010 {
+    left: 71px;
+    top: 318px;
+}
+#japan-map-area #point-460010 {
+    left: 46px;
+    top: 385px;
+}
+#japan-map-area #point-471010 {
+    left: 119px;
+    top: 210px;
+}
+
+#general-weather-title {
+    background: none repeat scroll 0 0 #eeeeee;
+    border: 1px solid #a7b7f5;
+    border-collapse: collapse;
+}
+
+#search-area {
+    padding: 5px 0;
+    text-align: right;
+    width: 500px;
+}
+
+#result-area { 
+    display: none;
+}
+#forecasts-area {
+    margin-bottom: 20px;
+}
+
+table.forecast-table {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #a7b7f5;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    width: 520px;
+}
+
+table.forecast-table th {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #eeeeee;
+    border-color: #a7b7f5;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-weight: normal;
+    padding: 5px;
+    text-align: center;
+}
+
+table.forecast-table td {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #a7b7f5;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    padding: 5px;
+}
+
+#weather-area-title span, #general-weather-title span {
+    float: right;
+}
+
+#general-weather {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-collapse: collapse;
+    border-color: #a7b7f5;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    line-height: 135%;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 500px;
+}

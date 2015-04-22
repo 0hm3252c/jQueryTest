@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>jQuery入門研修｜ホバーイベント実践</title>
+</head>
+<body>
+    <a href="http://jquery.com/" id="foo">jQuery</a>
+    <script src="../js/jquery-1.11.2.min.js"></script>
+    <script>
+        $(function() {
+//         	function onMouse(){
+//         		console.log("mouseenter");
+//         	}
+//         	function offMouse(){
+//         		console.log("mouseleave");
+//         	}
+            // ホバーイベントにアタッチ！
+            $("a").hover(
+	       		function(){
+	   				console.log("mouseenter");
+	   			},
+	        	function(){
+	        		console.log("mouseleave");
+	        	}
+			);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>jQuery入門研修｜スタイル操作実践</title>
+<style>
+#bar {
+    background-color:orange;
+}
+a {
+    background-color:black;
+    color:green;
+}
+a:hover{
+	color:red;
+}
+a:link{
+	color:yellow;
+}
+</style>
+
+</head>
+<body>
+    <a href="http://jquery.com/" id="bar" >jQuery</a>
+    <input type="button" id="foo" value="ボタン">
+    <script src="../js/jquery-1.11.2.min.js"></script>
+    
+	<span style="background-color:red">aaaaaaaaaaaa<span>
+	<script>
+        $(function() {
+            $("#foo").click(function() {
+                var $a = $("a");
+                console.log($a.css("background-color"));
+                $a.css("background-color", "yellow");
+                console.log($a.css("background-color"));
+            });
+        });
+    </script>
+
+</body>
+</html>

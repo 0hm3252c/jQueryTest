@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>jQuery入門研修｜属性の操作実践</title>
+</head>
+<body>
+	<a href="http://jquery.com/">jQuery</a>
+	<a href="http://jquery.com/">jQuery</a>
+	<script src="../js/jquery-1.11.2.min.js"></script>
+	<script>
+			$(function() {
+// 				console.log($("a").attr("target"));
+
+				$("a").click(function() {
+// 					// href属性の値を取得してコンソールに出力(現在の値)
+// 					console.log($(this).attr("href"));
+// 					// href属性の値を変更
+// 					$(this).attr("href", "#dummy");
+// 					// href属性の値を取得してコンソールに出力(変更後の値)
+// 					console.log($(this).attr("href"));
+					// href属性の値を取得してコンソールに出力(現在の値)
+					console.log($(this).attr("target"));
+					// href属性の値を変更
+					$(this).attr("target", "_blank");
+					// href属性の値を取得してコンソールに出力(変更後の値)
+					console.log($(this).attr("target"));
+
+				});
+			});
+	</script>
+</body>
+</html>

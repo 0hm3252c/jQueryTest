@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>jQuery入門研修｜要素の操作実践</title>
+</head>
+<body>
+	<ul>
+		<li>リストアイテム１の１</li>
+		<li>リストアイテム１の２</li>
+		<li>リストアイテム１の３</li>
+	</ul>
+	<ul>
+		<li>リストアイテム２の１</li>
+		<li>リストアイテム２の２</li>
+		<li>リストアイテム２の３</li>
+	</ul>
+	<ul>
+		<li>リストアイテム２の１</li>
+		<li>リストアイテム２の２</li>
+		<li>リストアイテム２の３</li>
+	</ul>
+
+	<script src="../js/jquery-1.11.2.min.js"></script>
+	<script>
+			$(function() {
+				// 新しいliを作って
+				var $newLi = $("<li>new list item</li>");
+
+				// 作ったliをulに挿入！
+				// $("ul").append($newLi);
+				var $aTLi = $newLi.appendTo($("ul"));
+
+				// あ、さっき挿入したliの文字色を赤にしたい！
+				$aTLi.css("color", "red");
+			});
+	</script>
+</body>
+</html>
